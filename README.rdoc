@@ -1,6 +1,18 @@
+#Checking in Code
+````
+git commit -a -m  "Fixes and updates"
+git push
+````
+
+#Deploying to Live Site
+````
+cap production deploy
+````
+
 #Server Setup
 
 (From https://gorails.com/deploy/ubuntu/14.04)
+
 ````
 sudo adduser deploy
 sudo adduser deploy sudo
