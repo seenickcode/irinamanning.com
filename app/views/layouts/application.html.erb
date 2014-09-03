@@ -10,6 +10,20 @@
     <link href="assets/bootstrap.min.css" rel="stylesheet">
     <link href="assets/transitions.css" rel="stylesheet">
 
+    <style type='text/css'>
+      .project-description {
+        margin-bottom: 50px;
+        color: #666;
+      }
+      .project-showcase img { 
+        max-width: 800px;
+        margin-bottom: 50px;
+      }
+      a {
+        color: #333;
+      }
+    </style>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -20,11 +34,14 @@
     <script src="assets/jquery-2.1.1.min.js"></script>
   </head>
   <body>
-    <%= yield %>
-    
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+
     <script src="assets/jquery.collagePlus.min"></script>
     <script src="assets/bootstrap.min.js"></script>
     <script src="assets/jquery.removeWhitespace.min.js"></script>
     <script src="assets/jquery.collageCaption.min.js"></script>
+    <script src="assets/jquery.cookie.js"></script>
   </body>
 </html>

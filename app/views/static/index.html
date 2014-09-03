@@ -1,26 +1,48 @@
+<style type="text/css">
+  .Collage {
+    padding: 10px;
+  }
+  .homepage-footer {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 30px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+</style>
 <script type="text/javascript">
 
   // all images need to be loaded for this plugin to work so
   // we end up waiting for the whole window to load in this example
+
   $(window).load(function () {
-      $(document).ready(function() {
-        $('.Collage').removeWhitespace().collagePlus(
-          {
-              'fadeSpeed'           : 20000,
-              'targetHeight'        : 200,
-              'effect'              : 'effect-2',
-              'direction'           : 'vertical',
-              'allowPartialLastRow' : true
-          }
-      );
+    $(document).ready(function() {
+      $('.Collage').removeWhitespace().collagePlus({
+        'fadeSpeed'           : 20000,
+        'targetHeight'        : 200,
+        'effect'              : 'effect-2',
+        'direction'           : 'vertical',
+        'allowPartialLastRow' : true
+      });
       $('.Collage').collageCaption();
 
-      $('#homepage-collage').hide();
-      $('#homepage-logo').click(function(event) {
-        event.preventDefault();
+      returningVisitor = $.cookie("returningVisitor");
+      
+      if (returningVisitor) {
+        // skip to the homepage collage
         $('#homepage-logo').hide();
         $('#homepage-collage').show();
-      });
+      } else {
+        // show the hero logo first
+        $('#homepage-collage').hide();
+        $('#homepage-logo').click(function(event) {
+          event.preventDefault();
+          $('#homepage-logo').hide();
+          $('#homepage-collage').show();
+          $.cookie("returningVisitor", "1");
+        });
+      }
       
     });
   });
@@ -41,49 +63,46 @@
   <img src="assets/irina-logo.jpg" width="40%" class="img-responsive center-block" style="margin-top: 50px" />
 </a>
 
-<section class="Collage effect-parent" id='homepage-collage'>
+<div id='homepage-collage'>
 
-  <div class="Image_Wrapper effect-4 effect-duration-1" data-caption="" style="width: 400px; height: 178px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;">
-    <a href="peak.html"><img src="assets/peak2b.png" style="width: 580px; height: 258px;"></a>
-  </div>
+  <section class="Collage effect-parent" id='homepage-collage'>
 
-  <div class="Image_Wrapper effect-4 effect-duration-1" style="width: 307px; height: 178px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;">
-    <a><img src="assets/bfi3a.png" style="width: 512px; height: 355px;"></a>
-  </div>
-  
-  <div class="Image_Wrapper effect-4 effect-duration-1" data-caption="" style="width: 190px; height: 178px; margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;">
-    <a><img src="assets/becomingbrand-thumb-a.png" style="width: 375px; height: 375px;"></a>
-  </div>
-  
-  <div class="Image_Wrapper effect-4 effect-duration-2" data-caption="This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it" style="width: 122px; height: 130px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a><img src="http://placehold.it/472x500/F38630/ffffff" style="width: 110px; height: 118px;"></a><div class="Caption" style="position: relative; top: 0px;"><div class="Caption_Background" style="opacity: 0.5; position: relative; top: 0px; height: 328px; background-color: black;"></div><div class="Caption_Content" style="position: relative; top: -328px;">This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href="http://www.bbc.co.uk">link</a> in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href="http://www.bbc.co.uk">link</a> in it</div></div></div>
-  
-  <div class="Image_Wrapper effect-4 effect-duration-2" data-caption="This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it" style="width: 188px; height: 130px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a><img src="http://placehold.it/540x360/FA6900/ffffff" style="width: 176px; height: 118px;"></a><div class="Caption" style="position:relative;"><div class="Caption_Background" style="opacity: 0.5; position: relative; top: 0px; height: 120px; background-color: black;"></div><div class="Caption_Content" style="position: relative; top: -120px;">This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href="http://www.bbc.co.uk">link</a> in it</div></div></div>
+    <img src="assets/irina-logo.jpg" width="100px" class="" style="margin-top: 5px" />
 
-  <div class="Image_Wrapper effect-4 effect-duration-2" data-caption="This is some data <u>with</u>html in it" style="width: 168px; height: 130px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a><img src="http://placehold.it/800x600/ECD078/ffffff" style="width: 156px; height: 118px;"></a><div class="Caption" style="position: relative; top: 0px;"><div class="Caption_Background" style="opacity: 0.5; position: relative; top: 0px; height: 72px; background-color: black;"></div><div class="Caption_Content" style="position: relative; top: -72px;">This is some data <u>with</u>html in it</div></div></div>
+    <div class="Image_Wrapper effect-4 effect-duration-1" data-caption="" style="width: 400px; height: 178px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;">
+      <a href="peak.html"><img src="assets/peak2b.png" style="width: 580px; height: 258px;"></a>
+    </div>
 
-  <div class="Image_Wrapper effect-4 effect-duration-2" data-caption="This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it" style="width: 408px; height: 130px; margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a><img src="http://placehold.it/400x120/D95B43/ffffff" style="width: 396px; height: 118px;"></a><div class="Caption" style="position:relative;"><div class="Caption_Background" style="opacity: 0.5; position: relative; top: 0px; height: 72px; background-color: black;"></div><div class="Caption_Content" style="position: relative; top: -72px;">This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href="http://www.bbc.co.uk">link</a> in it</div></div></div>
+    <div class="Image_Wrapper effect-4 effect-duration-1" style="width: 307px; height: 178px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;">
+      <a href="bfi.html"><img src="assets/bfi3a.png" style="width: 512px; height: 355px;"></a>
+    </div>
+    
+    <div class="Image_Wrapper effect-4 effect-duration-1" data-caption="" style="width: 190px; height: 178px; margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;">
+      <a href="becoming.html"><img src="assets/becomingbrand-thumb-a.png" style="width: 375px; height: 375px;"></a>
+    </div>
+    
+    <div class="Image_Wrapper effect-4 effect-duration-2" data-caption="" style="width: 122px; height: 130px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;">
+      <a href="herman.html"><img src="assets/hm3a.png" style="width: 110px; height: 118px;"></a>
+    </div>
+    
+    <div class="Image_Wrapper effect-4 effect-duration-2" data-caption="" style="width: 188px; height: 130px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;">   <a href="vega.html"><img src="assets/vega2a.png" style="width: 735px; height: 516px;"></a></div>
 
-  <div class="Image_Wrapper effect-4 effect-duration-3" data-caption="This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href='http://www.bbc.co.uk'>link</a> in it" style="width: 199px; height: 200px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a><img src="http://placehold.it/300x300/C02942/ffffff" style="width: 187px; height: 188px;"></a><div class="Caption" style="position: relative; top: 0px;"><div class="Caption_Background" style="opacity: 0.5; position: relative; top: 0px; height: 120px; background-color: black;"></div><div class="Caption_Content" style="position: relative; top: -120px;">This is some data <u>with</u>html in it This is some data <u>with</u>html in it. Also a really long sentence with a <a href="http://www.bbc.co.uk">link</a> in it</div></div></div>
-  
-  <div class="Image_Wrapper effect-4 effect-duration-3" data-caption="This is some data <u>with</u>html in it" style="width: 131px; height: 200px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a><img src="http://placehold.it/320x500/542437/ffffff" style="width: 119px; height: 188px;"></a><div class="Caption" style="position: relative; top: 0px;"><div class="Caption_Background" style="opacity: 0.5; position: relative; top: 0px; height: 88px; background-color: black;"></div><div class="Caption_Content" style="position: relative; top: -88px;">This is some data <u>with</u>html in it</div></div></div>
+    <div class="Image_Wrapper effect-4 effect-duration-2" data-caption="" style="width: 168px; height: 130px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a href="element.html"><img src="assets/elem-a.png" style="width: 689px; height: 441px;"></a></div>
 
-<!--   <div class="Image_Wrapper effect-4 effect-duration-3" data-caption="This is some data <u>with</u>html in it" style="width: 293px; height: 200px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a><img src="http://placehold.it/450x300/53777A/ffffff" style="width: 281px; height: 188px;"></a><div class="Caption" style="position: relative; top: 0px;"><div class="Caption_Background" style="opacity: 0.5; position: relative; top: 0px; height: 56px; background-color: black;"></div><div class="Caption_Content" style="position: relative; top: -56px;">This is some data <u>with</u>html in it</div></div></div>
+    <div class="Image_Wrapper effect-4 effect-duration-2" data-caption="" style="width: 204px; height: 130px; margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;">
+      <a href="webespy.html"><img src="assets/webespy-a.png" style="width: 627px; height: 572px;"></a
+        >
+    </div>
 
-  <div class="Image_Wrapper effect-4 effect-duration-3" style="width: 263px; height: 200px; margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a href="http://edlea.com"><img src="images/example/ed-lea-dribbble-10.jpg" style="width: 251px; height: 188px;"></a></div> -->
+    <div class="Image_Wrapper effect-4 effect-duration-2" data-caption="" style="width: 204px; height: 130px; margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;">
+      <a href="felix.html"><img src="assets/felix-a.png" style="width: 230px; height: 230px;"></a
+        >
+    </div>
 
-<!--   <div class="Image_Wrapper effect-4 effect-duration-4" style="width: 221px; height: 169px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a href="http://edlea.com"><img src="images/example/ed-lea-dribbble-9.png" style="width: 209px; height: 157px;"></a></div>
-
-  <div class="Image_Wrapper effect-4 effect-duration-4" style="width: 221px; height: 169px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a href="http://edlea.com"><img src="images/example/ed-lea-dribbble-8.png" style="width: 209px; height: 157px;"></a></div>
-
-  <div class="Image_Wrapper effect-4 effect-duration-4" style="width: 221px; height: 169px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a href="http://edlea.com"><img src="images/example/ed-lea-dribbble-7.png" style="width: 209px; height: 157px;"></a></div>
-
-  <div class="Image_Wrapper effect-4 effect-duration-4" style="width: 223px; height: 169px; margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a href="http://edlea.com"><img src="images/example/ed-lea-dribbble-6.png" style="width: 211px; height: 157px;"></a></div>
-
-  <div class="Image_Wrapper effect-4 effect-duration-5" style="width: 221px; height: 169px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a href="http://edlea.com"><img src="images/example/ed-lea-dribbble-5.png" style="width: 209px; height: 157px;"></a></div>
-
-  <div class="Image_Wrapper effect-4 effect-duration-5" style="width: 221px; height: 169px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a href="http://edlea.com"><img src="images/example/ed-lea-dribbble-4.png" style="width: 209px; height: 157px;"></a></div>
-
-  <div class="Image_Wrapper effect-4 effect-duration-5" style="width: 221px; height: 169px; margin-bottom: 10px; margin-right: 10px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a href="http://edlea.com"><img src="images/example/ed-lea-dribbble-3.png" style="width: 209px; height: 157px;"></a></div>
-
-  <div class="Image_Wrapper effect-4 effect-duration-5" style="width: 223px; height: 169px; margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom; overflow: hidden; opacity: 0;"><a href="http://edlea.com"><img src="images/example/ed-lea-dribbble-2.png" style="width: 211px; height: 157px;"></a></div> -->
   </section>
+
+</div><!-- end homepage-collage -->
+
+<div class="homepage-footer">
+  <a href="http://www.linkedin.com/in/irinamanning" target="_blank">about</a>
+</div>
