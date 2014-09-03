@@ -1,6 +1,7 @@
 #Checking in Code
 ````
-git commit -a -m  "Fixes and updates"
+git add --all
+git commit -m  "Fixes and updates"
 git push
 ````
 
