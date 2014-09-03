@@ -7,8 +7,7 @@
     text-align: center;
     position: fixed;
     bottom: 30px;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 14px;
   }
 </style>
 <script type="text/javascript">
@@ -33,11 +32,14 @@
         // skip to the homepage collage
         $('#homepage-logo').hide();
         $('#homepage-collage').show();
+        $('.homepage-footer').show();
       } else {
         // show the hero logo first
+        $('.homepage-footer').hide();
         $('#homepage-collage').hide();
         $('#homepage-logo').click(function(event) {
           event.preventDefault();
+          $('.homepage-footer').show();
           $('#homepage-logo').hide();
           $('#homepage-collage').show();
           $.cookie("returningVisitor", "1");
