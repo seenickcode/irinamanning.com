@@ -3,4 +3,5 @@ Irinamanning::Application.routes.draw do
 
   match '/' => 'static#index'
   match '/projects' => 'static#projects'
+  match '/peak' => 'static#peak'
 end
